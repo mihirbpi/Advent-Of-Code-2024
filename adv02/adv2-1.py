@@ -11,9 +11,7 @@ def is_safe(report):
     for i in range(len(report)-1):
         change = abs(report[i+1] - report[i])
         
-        if (change < 1):
-            return False
-        elif(change > 3):
+        if (change < 1 or change > 3):
             return False
         
     return True
