@@ -13,12 +13,24 @@ for i in range(len(data)):
         
         if (data[i][j] == "^"):
             guard_pos_init = (i,j)
+            
+visited = set()
+guard_pos = guard_pos_init
+guard_dir_index = 0
 
+while(grid_dict_init[guard_pos] != ""):
+    visited.add(guard_pos)
+    dir = dirs[guard_dir_index]
+    new_pos = (guard_pos[0]+dir[0], guard_pos[1]+dir[1])
+    
+    if (grid_dict_init[new_pos] != "#"):
+        guard_pos = new_pos
+    elif (grid_dict_init[new_pos] == "#"):
+        guard_dir_index = (guard_dir_index + 1) % 4
+        
 count_loops = 0
 
-for i in range(len(data)):
-    
-    for j in range(len(data[0])):
+for i,j in visited:
         
         if (grid_dict_init[(i,j)] == "."):
             guard_pos = guard_pos_init
