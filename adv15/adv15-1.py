@@ -45,6 +45,7 @@ def move_robot(robot_pos, move, grid):
             pos = moving_positions[i]
             new_pos = (pos[0]+move_to_dir[move][0], pos[1]+move_to_dir[move][1])
             grid_dict[new_pos] = to_move[i]
+            
             if (i == 0):
                 robot_pos[0], robot_pos[1] = new_pos 
                 
