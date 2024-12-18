@@ -7,7 +7,6 @@ moves = ["^", ">", "v", "<"]
 move_to_dir = {"^": (-1,0), ">": (0,1), "v": (1,0), "<":(0,-1)}
 
 nodes = set()
-edges = set()
 edge_weight_dict = {}
 neighbors_dict = {}
 
@@ -35,12 +34,10 @@ for row in range(len(data)):
                 node_90cw = (row, col, moves[(moves.index(move)+1)%4])
                 nodes.add(node_90cw)
                 edge_cw = (node, node_90cw)
-                edges.add(edge_cw)
                 edge_weight_dict[edge_cw] = 1000
                 node_90ccw = (row, col, moves[(moves.index(move)-1)%4])
                 nodes.add(node_90ccw)
                 edge_ccw = (node, node_90ccw)
-                edges.add(edge_ccw)
                 edge_weight_dict[edge_ccw] = 1000
                 node_ahead = (row+move_to_dir[move][0], col+move_to_dir[move][1], move)
                 
@@ -52,7 +49,6 @@ for row in range(len(data)):
                 if (grid_dict[(node_ahead[0], node_ahead[1])] in "ES."):
                     nodes.add(node_ahead)
                     edge_ahead = (node, node_ahead)
-                    edges.add(edge_ahead)
                     edge_weight_dict[edge_ahead] = 1
                     neighbors_dict[node].append(node_ahead)
                         
