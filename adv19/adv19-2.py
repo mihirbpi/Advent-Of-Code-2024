@@ -15,10 +15,10 @@ def num_ways(design, D):
     
     res = 0
         
-    for i in range(min(len(design), max([len(pattern) for pattern in patterns]))+1):
+    for pattern in patterns:
         
-        if (design[:i] in patterns):
-            res += num_ways(design[i:],D)
+        if (design.startswith(pattern)):
+            res += num_ways(design[len(pattern):],D)
             
     D[design] = res
     return res

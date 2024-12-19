@@ -13,11 +13,14 @@ def possible(design, D):
     if (design in D):
         return D[design]
         
-    for i in range(min(len(design), max([len(pattern) for pattern in patterns]))+1):
-        
-        if (design[:i] in patterns and possible(design[i:],D)):
-            D[design] = True
-            return True
+    for i in range(len(design)):
+        for pattern in patterns:
+            
+            if (design.startswith(pattern)):
+                
+                if (possible(design[len(pattern):],D)):
+                    D[design] = True
+                    return True
 
     D[design] = False
     return False
