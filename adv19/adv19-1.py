@@ -14,6 +14,7 @@ def possible(design, D):
         return D[design]
         
     for i in range(len(design)):
+        
         for pattern in patterns:
             
             if (design.startswith(pattern)):
