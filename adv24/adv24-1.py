@@ -2,7 +2,6 @@ from aocd import get_data
 from functools import lru_cache
 
 data = get_data(year=2024, day=24).split("\n\n")
-#data = open("test.txt", "r").read().split("\n\n")
 
 outputs_dict = {}
 instructions_dict = {}
