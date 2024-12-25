@@ -1,7 +1,6 @@
 from aocd import get_data
 
 data = get_data(year=2024, day=25).split("\n\n")
-#data = open("test.txt", "r").read().split("\n\n")
 locks = []
 keys = []
 
